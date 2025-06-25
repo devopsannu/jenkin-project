@@ -40,3 +40,13 @@ resource "storage_account_name" "jen-stg" {
   account_tier             = "Standard"
   account_replication_type = "LRS"
 }
+
+resource "storage_account_name" "jen-stg1" {
+               depends_on = [ azurerm_resource_group.jen-1 ]
+  name                     = "jenkinstfstate2"
+  resource_group_name      = "jenkins-rg1"
+  location                 = "westus"
+  account_tier             = "Standard"
+  account_replication_type = "LRS"
+}
+
