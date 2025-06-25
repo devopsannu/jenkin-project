@@ -1,5 +1,5 @@
 terraform {
-  required_version = "1.11.0"
+  required_version = ">=1.11.0"
 
   backend "azurerm" {
     resource_group_name  = "jenkins-tfstate-rg"
@@ -32,8 +32,8 @@ resource "azurerm_resource_group" "jen-2" {
 
 }
 
-resource "storage_account_name" "jen-stg" {
-               depends_on = [ azurerm_resource_group.jen-1 ]
+resource "azurerm_storage_account" "jen-stg" {
+  depends_on               = [azurerm_resource_group.jen-1]
   name                     = "jenkinstfstate1"
   resource_group_name      = "jenkins-rg1"
   location                 = "westus"
@@ -41,9 +41,9 @@ resource "storage_account_name" "jen-stg" {
   account_replication_type = "LRS"
 }
 
-resource "storage_account_name" "jen-stg1" {
-               depends_on = [ azurerm_resource_group.jen-1 ]
-  name                     = "jenkinstfstate2"
+resource "azurerm_storage_account" "jen-stg1" {
+  depends_on               = [azurerm_resource_group.jen-1]
+ name                     = "jenkinstfstate2"
   resource_group_name      = "jenkins-rg1"
   location                 = "westus"
   account_tier             = "Standard"
