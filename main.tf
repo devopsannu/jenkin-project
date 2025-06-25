@@ -43,7 +43,7 @@ resource "azurerm_storage_account" "jen-stg" {
 
 resource "azurerm_storage_account" "jen-stg1" {
   depends_on               = [azurerm_resource_group.jen-1]
-  name                     = "jenkinstfstate2"
+ name                     = "jenkinstfstate2"
   resource_group_name      = "jenkins-rg1"
   location                 = "westus"
   account_tier             = "Standard"
