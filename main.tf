@@ -49,4 +49,12 @@ resource "azurerm_storage_account" "jen-stg1" {
   account_tier             = "Standard"
   account_replication_type = "LRS"
 }
+resource "azurerm_storage_account" "jen-stg12" {
+  depends_on               = [azurerm_resource_group.jen-1]
+  name                     = "jenkinstfstate3"
+  resource_group_name      = "jenkins-rg1"
+  location                 = "westus"
+  account_tier             = "Standard"
+  account_replication_type = "LRS"
+}
 
